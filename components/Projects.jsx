@@ -1,102 +1,88 @@
-function Projects() {
-  const github = () => {
-    window.location.href = "https://github.com/AmirShabbir99";
-  };
-  return (
-    <div className="p-5 lg:p-32 text-center ">
-      <div className="text-gray-500 text-lg">Browse my recent</div>
-      <div className="text-gray-900 text-5xl font-bold">Projects</div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 p-10 lg:py-10 space-y-5 lg:space-y-0 lg:space-x-5 ">
-        <div className="ring-1 rounded-3xl p-5 lg:p-5 flex gap-3 lg:gap-10 flex-col">
-          <img src="/job.webp" className="rounded-3xl lg:h-[250px]" />
-          <div className="text-gray-900 text-2xl lg:text-3xl font-bold ">
-            Career Compass
-          </div>
-          <div className="flex gap-2 lg:ml-7">
-            <button
-              onClick={() => {
-                window.open(
-                  "https://github.com/AmirShabbir99/Career",
-                  "_blank"
-                );
-              }}
-              className="ring-1 rounded-full p-2  text-md lg:text-xl hover:text-white hover:bg-gray-800 transition"
-            >
-              Githube
-            </button>
-            <button
-              onClick={() => {
-                window.open("https://careercompass-seven.vercel.app", "_blank");
-              }}
-              className="ring-1 rounded-full p-2   text-md lg:text-xl hover:text-white hover:bg-gray-800 transition"
-            >
-              Live Demo
-            </button>
-          </div>
-        </div>
-        <div className="ring-1 rounded-3xl p-5 lg:p-5 flex gap-3 lg:gap-10 flex-col">
-          <img src="/auction.jpeg" className="rounded-3xl" />
-          <div className="text-gray-900 text-2xl lg:text-3xl font-bold">
-            Prime Bid
-          </div>
-          <div className="flex gap-2 lg:ml-7">
-            <button
-              onClick={() => {
-                window.open(
-                  "https://github.com/AmirShabbir99/Auction_Portal",
-                  "_blank"
-                );
-              }}
-              className="ring-1 rounded-full p-2  text-md lg:text-xl hover:text-white hover:bg-gray-800 transition"
-            >
-              Githube
-            </button>
-            <button
-              onClick={() => {
-                window.open("https://auction-portal-bamd.vercel.app", "_blank");
-              }}
-              className="ring-1 rounded-full p-2   text-md lg:text-xl hover:text-white hover:bg-gray-800 transition"
-            >
-              Live Demo
-            </button>
-          </div>
-        </div>
+import React from "react";
+import { motion } from "framer-motion";
 
-        <div className="ring-1 rounded-3xl p-5 lg:p-5 flex gap-3 lg:gap-10 flex-col">
-          <img
-            src="/foods.png"
-            className="rounded-xl lg:h-[200px] lg:w-[500px] mt-5"
-          />
-          <div className="text-gray-900 text-2xl lg:text-3xl font-bold lg:mt-7">
-            Food Recipe
-          </div>
-          <div className="flex gap-2 lg:ml-7">
-            <button
-              onClick={() => {
-                window.open(
-                  "https://github.com/AmirShabbir99/Food_Recipe",
-                  "_blank"
-                );
+const projectsData = [
+  {
+    title: "Job Portal",
+    imgSrc: "/job.webp",
+    githubUrl: "https://github.com/AmirShabbir99/Career",
+    demoUrl: "https://careercompass-seven.vercel.app",
+  },
+  {
+    title: "Prime Bid",
+    imgSrc: "/auction.jpeg",
+    githubUrl: "https://github.com/AmirShabbir99/Auction_Portal",
+    demoUrl: "https://auction-portal-bamd.vercel.app",
+  },
+  {
+    title: "E-Learning",
+    imgSrc: "/learn.jpg",
+    githubUrl: "https://github.com/AmirShabbir99/E_Learning_Platform",
+    demoUrl: "https://bejewelled-travesseiro-7fdaa9.netlify.app",
+  },
+];
+
+export default function Projects() {
+  return (
+    <section id="projects" className="py-20 px-6 lg:px-40 bg-gray-50">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-gray-500 uppercase tracking-widest mb-3 text-lg lg:text-xl">
+          Browse My Recent
+        </h2>
+        <h1 className="text-gray-900 text-5xl lg:text-6xl font-extrabold mb-12">
+          Projects
+        </h1>
+
+        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {projectsData.map((project, index) => (
+            <motion.div
+              key={project.title}
+              className="bg-white ring-1 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: index * 0.1,
               }}
-              className="ring-1 rounded-full p-2  text-md lg:text-xl hover:text-white hover:bg-gray-800 transition"
+              viewport={{ once: true, amount: 0.2 }}
             >
-              Githube
-            </button>
-            <button
-              onClick={() => {
-                window.open(
-                  "https://bejewelled-travesseiro-7fdaa9.netlify.app",
-                  "_blank"
-                );
-              }}
-              className="ring-1 rounded-full p-2   text-md lg:text-xl hover:text-white hover:bg-gray-800 transition"
-            >
-              Live Demo
-            </button>
-          </div>
+              <div className="relative h-64 lg:h-72">
+                <img
+                  src={project.imgSrc}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="p-8 flex-grow flex flex-col justify-between">
+                <h3 className="text-gray-900 text-3xl lg:text-4xl font-semibold mb-6">
+                  {project.title}
+                </h3>
+
+                <div className="mt-auto flex space-x-6">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-6 py-3 border-2 border-gray-300 rounded-full text-base lg:text-lg font-medium hover:bg-gray-900 hover:text-white transition"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-6 py-3 border-2 border-gray-300 rounded-full text-base lg:text-lg font-medium hover:bg-gray-900 hover:text-white transition"
+                  >
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-export default Projects;
