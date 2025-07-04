@@ -106,9 +106,7 @@ export default function About() {
               PostgreSQL.
             </li>
             <li>
-              Completed a 3-month paid internship building AI-based web apps (AI
-              Avatar, AI Lawbot, Khurshid Ahmad Bot) with role-based access,
-              REST APIs, multilingual support, and UI enhancements.
+             Completed a 3-month role as a Junior Developer at PixelPK, building AI-based web applications (AI Avatar, AI Lawbot, Khurshid Ahmad Bot) with role-based access, REST APIs, multilingual support, and UI enhancements.
             </li>
           </motion.ul>
         </motion.div>
