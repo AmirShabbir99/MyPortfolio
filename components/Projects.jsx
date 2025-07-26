@@ -18,7 +18,7 @@ const projectsData = [
     title: "E-Learning",
     imgSrc: "/learn.jpg",
     githubUrl: "https://github.com/AmirShabbir99/E_Learning_Platform",
-    demoUrl: "https://bejewelled-travesseiro-7fdaa9.netlify.app",
+    demoUrl: "https://github.com/AmirShabbir99/E_Learning_Platform",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-6 py-3 border-2 border-gray-300 rounded-full text-base lg:text-lg font-medium hover:bg-gray-900 hover:text-white transition"
+                    className="inline-block px-6 py-3  border-2 border-gray-300 rounded-full text-base lg:text-lg font-medium hover:bg-gray-900 hover:text-white transition"
                   >
                     GitHub
                   </a>
@@ -75,7 +75,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="inline-block px-6 py-3 border-2 border-gray-300 rounded-full text-base lg:text-lg font-medium hover:bg-gray-900 hover:text-white transition"
                   >
-                    Live Demo
+                    Live 
                   </a>
                 </div>
               </div>

@@ -81,7 +81,7 @@ export default function About() {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Experience
               </h3>
-              <p className="text-lg font-semibold text-gray-600">6 Month</p>
+              <p className="text-lg font-semibold text-gray-600">8 Month</p>
               <p className="text-md font-medium text-gray-600">
                 MERN Stack Developer
               </p>
@@ -97,16 +97,16 @@ export default function About() {
             viewport={{ once: true }}
           >
             <li>
-              Completed a 1-month remote internship at Ecodecamp, delivering 5
+              Completed a 1 month remote internship at Ecodecamp, delivering 5
               projects using HTML, CSS, React.js, and Tailwind CSS.
             </li>
             <li>
-              Gained 2 months of freelancing experience on HR and Asset
+              Gained 3 months of freelancing experience on Human resource management and Asset
               Management systems using the MERN stack, Next.js, Prisma, and
               PostgreSQL.
             </li>
             <li>
-             Completed a 3-month role as a Junior Developer at PixelPK, building AI-based web applications (AI Avatar, AI Lawbot, Khurshid Ahmad Bot) with role-based access, REST APIs, multilingual support, and UI enhancements.
+             Completed a 4 month role as a Junior Developer at PixelPK, building AI-based web applications (AI Avatar, AI Lawbot, Khurshid Ahmad Bot) with role-based access, REST APIs, multilingual support, and UI enhancements.
             </li>
           </motion.ul>
         </motion.div>
