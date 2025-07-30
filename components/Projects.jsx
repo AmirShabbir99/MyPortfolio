@@ -18,7 +18,7 @@ const projectsData = [
     title: "E-Learning",
     imgSrc: "/learn.jpg",
     githubUrl: "https://github.com/AmirShabbir99/E_Learning_Platform",
-    demoUrl: "https://github.com/AmirShabbir99/E_Learning_Platform",
+    demoUrl: "https://e-learning-platform-sigma-five.vercel.app",
   },
 ];
 
