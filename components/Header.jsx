@@ -1,113 +1,98 @@
-import React from "react";
-import resume from "/AmirResume.pdf";
-import { Link } from "react-scroll";
 import { motion } from "framer-motion";
+import { ArrowUpRight, Github, Linkedin } from "lucide-react";
+import portrait from "@/assets/profile-pic.png";
+
+const socials = [
+  { label: "Github", icon: Github },
+  { label: "LinkedIn", icon: Linkedin },
+];
 
 export default function Header() {
-  const linkedIn = () => {
-    window.open(
-      "https://www.linkedin.com/in/amir-shabbir-74404b280/",
-      "_blank"
-    );
-  };
-
-  const github = () => {
-    window.open("https://github.com/AmirShabbir99", "_blank");
-  };
-
   return (
-    <header className="grid grid-cols-1 lg:grid-cols-2  lg:mt-[100px] bg-white">
-      {/* Profile Image with animation */}
-      <motion.div
-        className="p-10 sm:p-20 lg:p-32 flex justify-center items-center"
-        initial={{ opacity: 0, x: -50, scale: 0.8 }}
-        whileInView={{ opacity: 1, x: 0, scale: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        <div className="   flex justify-center items-center">
-          <img src="/profile-pic.png" className="shadow-xl rounded-full" />
-        </div>
-      </motion.div>
-
-      {/* Intro Text and Buttons with staggered animation */}
-      <motion.div
-        className="py-16 sm:py-24 lg:py-32 px-6 sm:px-12 flex flex-col justify-center items-center gap-6 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={{
-          hidden: { opacity: 0, y: 30 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-              when: "beforeChildren",
-              staggerChildren: 0.1,
-              duration: 0.6,
-              ease: "easeOut",
-            },
-          },
-        }}
-      >
-        {[
-          <div className="text-xl sm:text-2xl font-semibold text-gray-700">
-            Hello, I’m
-          </div>,
-          <div className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900">
-            Muhammad Amir
-          </div>,
-          <div className="text-xl sm:text-2xl font-semibold text-gray-700">
-            MERN Stack Developer
-          </div>,
-        ].map((child, idx) => (
-          <motion.div key={idx} variants={{ hidden: {}, visible: {} }}>
-            {child}
-          </motion.div>
-        ))}
-
-        {/* Buttons */}
-        <motion.div
-          variants={{ hidden: {}, visible: {} }}
-          className="flex gap-4"
+    <section className="relative px-4 sm:px-10 pt-8 sm:pt-14 pb-10 overflow-hidden">
+      <div className="relative">
+        <motion.h1
+          initial="hidden"
+          animate="show"
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
+          className="text-center font-display font-black leading-[0.85] tracking-tight"
         >
-          <a href={resume} download>
-            <button className="ring-1 px-6 py-3 rounded-full hover:bg-gray-800 hover:text-white transition">
-              Download CV
-            </button>
-          </a>
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
-            offset={-50}
-            className="cursor-pointer"
+          <motion.span
+            variants={{ hidden: { y: 40, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="block text-[14vw] sm:text-[11vw] text-transparent"
+            style={{ WebkitTextStroke: "1.5px #0a0a0a" }}
           >
-            <button className="bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-900 transition">
-              Contact Info
-            </button>
-          </Link>
-        </motion.div>
+            Amir
+          </motion.span>
+          <motion.span
+            variants={{ hidden: { y: 40, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="block text-[14vw] sm:text-[11vw] text-neutral-900 -mt-[2vw]"
+          >
+            Shabbir
+          </motion.span>
+        </motion.h1>
 
-        {/* Social Icons */}
         <motion.div
-          variants={{ hidden: {}, visible: {} }}
-          className="flex gap-4 mt-4"
+          initial={{ y: 60, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto mt-4 sm:-mt-[6vw] w-[58%] max-w-[420px] z-10"
         >
           <img
-            onClick={linkedIn}
-            src="/linkedin.png"
-            alt="LinkedIn"
-            className="h-8 sm:h-10 cursor-pointer hover:opacity-75 transition"
-          />
-          <img
-            onClick={github}
-            src="/github.png"
-            alt="GitHub"
-            className="h-8 sm:h-10 cursor-pointer hover:opacity-75 transition"
+            src={portrait}
+            alt="Dymas Alfin portrait"
+            className="w-full select-none"
+            style={{
+              WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
+              maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
+            }}
           />
         </motion.div>
-      </motion.div>
-    </header>
+
+        <div className="relative -mt-6 sm:-mt-20 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 z-20">
+          <motion.div
+            initial={{ x: -30, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+            className="max-w-xs"
+          >
+            <h2 className="font-display text-2xl font-bold text-neutral-900">MERN Stack Developer</h2>
+            <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
+              Designing digital products that are clear, usable, and conversion focused.
+            </p>
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]"
+            >
+              Let's collaborate <ArrowUpRight className="h-4 w-4" />
+            </motion.a>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.8 } } }}
+            className="flex sm:flex-col gap-2.5 flex-wrap"
+          >
+            {socials.map((s) => (
+              <motion.a
+                key={s.label}
+                href="#"
+                variants={{ hidden: { x: 20, opacity: 0 }, show: { x: 0, opacity: 1 } }}
+                whileHover={{ scale: 1.05, x: -4 }}
+                className="flex items-center gap-2 rounded-full bg-white px-3.5 py-2 text-xs font-medium text-neutral-800 shadow-[0_4px_18px_rgba(0,0,0,0.06)]"
+              >
+                <s.icon className="h-3.5 w-3.5" />
+                {s.label}
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 }

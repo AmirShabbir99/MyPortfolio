@@ -1,116 +1,131 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import preview from "@/assets/service-preview.jpg";
+
+const items = [
+  {
+    company: "EezahTech",
+    title: "Junior Developer | MERN Stack Developer",
+    date: "October 2025 – Present",
+    type: "Full-time",
+    bullets: [
+      "Acquired 7 months of experience at EezahTech, working on production-level projects.",
+      "Built responsive React.js and Tailwind CSS interfaces for Urban Concept, optimizing performance and integrating dynamic APIs for seamless data handling.",
+      "Developed LEtudeImmobilier, a French real estate platform from scratch using React.js with multi-lingual support, secure authentication flows, dynamic routing, and advanced state management.",
+    ],
+  },
+  {
+    company: "PixelPK Technologies",
+    title: "Paid Internship | MERN Stack Developer",
+    date: "April 2025 – July 2025",
+    type: "Internship",
+    bullets: [
+      "Completed a 4-month paid internship as a MERN Stack Developer at PixelPK Technologies.",
+      "Built AI Avatar, AI Lawbot, and Khurshid Ahmad AI Bot.",
+      "Developed full-stack features with React.js and Node.js, including RBAC, APIs, and multilingual support.",
+      "Enhanced UI/UX with Figma and Tailwind CSS, integrating Heygen and OpenAI for voice and avatar interactions.",
+    ],
+  },
+];
 
 export default function About() {
+  const [hover, setHover] = useState(0);
+
   return (
-    <section
-      id="about"
-      className="about px-6 py-20 lg:px-32 lg:py-32 text-center bg-white"
-    >
+    <section id="experience" className="px-4 sm:px-8 py-16">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true }}
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-950 p-6 sm:p-10 text-white shadow-2xl"
       >
-        <div className="text-gray-500 text-lg mb-1">Get to know</div>
-        <div className="text-gray-900 text-4xl md:text-5xl font-bold mb-10">
-          About Me
+        <div
+          aria-hidden
+          className="absolute inset-x-0 top-6 text-center font-extrabold text-[12vw] sm:text-[8vw] text-white/[0.04] leading-none select-none pointer-events-none"
+        >
+          EXPERIENCE
+        </div>
+
+        <div className="relative flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p className="text-sm uppercase tracking-[0.35em] text-white/50">
+              Professional Journey
+            </p>
+            <h3 className="mt-2 text-3xl sm:text-5xl font-bold">
+              / EXPERIENCE
+            </h3>
+          </div>
+          <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">
+            MERN Stack Developer
+          </span>
+        </div>
+
+        <div className="relative mt-10 space-y-6">
+          {items.map((it, i) => (
+            <motion.div
+              key={it.company}
+              initial={{ x: -20, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              onMouseEnter={() => setHover(i)}
+              onMouseLeave={() => setHover(null)}
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20"
+            >
+              <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h4 className="text-xl sm:text-2xl font-semibold">
+                      {it.company}
+                    </h4>
+                    <span className="rounded-full bg-gradient-to-r from-white/15 to-white/5 px-3 py-1 text-xs uppercase tracking-wider text-white/70">
+                      {it.type}
+                    </span>
+                  </div>
+
+                  <p className="mt-2 text-sm sm:text-base text-white/70">
+                    {it.title}
+                  </p>
+
+                  <ul className="mt-4 space-y-2 text-sm sm:text-[15px] leading-6 text-white/75">
+                    {it.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-white/70 shrink-0" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="flex flex-col items-start md:items-end gap-3 md:ml-6">
+                  <span className="text-sm whitespace-nowrap text-white/50">
+                    {it.date}
+                  </span>
+
+                  {hover === i && (
+                    <motion.img
+                      layoutId="exp-preview"
+                      src={preview}
+                      alt=""
+                      initial={{ rotate: -6, scale: 0.92, opacity: 0 }}
+                      animate={{ rotate: 4, scale: 1, opacity: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 180,
+                        damping: 18,
+                      }}
+                      className="hidden md:block h-24 w-40 rounded-xl object-cover ring-1 ring-white/20 shadow-2xl"
+                    />
+                  )}
+                </div>
+              </div>
+
+              <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            </motion.div>
+          ))}
         </div>
       </motion.div>
-
-      <div className="flex flex-col lg:flex-row lg:items-center gap-10">
-        {/* Profile Image */}
-        <motion.div
-          className="flex-shrink-0"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <img
-            src="/imgA.png"
-            alt="Profile"
-            className="mx-auto w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 rounded-3xl object-cover"
-          />
-        </motion.div>
-
-        {/* Details */}
-        <motion.div
-          className="flex-grow"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          viewport={{ once: true }}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-            {/* Education Card */}
-            <motion.div
-              className="ring-1 rounded-lg p-6 flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <img src="/education.png" alt="Education" className="h-16 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Education
-              </h3>
-              <p className="text-lg font-semibold text-gray-600">
-                B.Sc. Computer Science
-              </p>
-              <p className="text-md font-medium text-gray-600">
-                Lahore Garrison University
-              </p>
-              <p className="text-sm font-medium text-gray-500">(2020–2024)</p>
-            </motion.div>
-
-            {/* Experience Card */}
-            <motion.div
-              className="ring-1 rounded-lg p-6 flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src="/experience.png"
-                alt="Experience"
-                className="h-16 mb-4"
-              />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Experience
-              </h3>
-              <p className="text-lg font-semibold text-gray-600">8 Month</p>
-              <p className="text-md font-medium text-gray-600">
-                MERN Stack Developer
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Bio Text */}
-          <motion.ul
-            className="list-disc pl-5 text-left text-gray-600 text-base sm:text-lg leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <li>
-              Completed a 1 month remote internship at Ecodecamp, delivering 5
-              projects using HTML, CSS, React.js, and Tailwind CSS.
-            </li>
-            <li>
-              Gained 3 months of freelancing experience on Human resource management and Asset
-              Management systems using the MERN stack, Next.js, Prisma, and
-              PostgreSQL.
-            </li>
-            <li>
-             Completed a 4 month role as a Junior Developer at PixelPK, building AI-based web applications (AI Avatar, AI Lawbot, Khurshid Ahmad Bot) with role-based access, REST APIs, multilingual support, and UI enhancements.
-            </li>
-          </motion.ul>
-        </motion.div>
-      </div>
     </section>
   );
 }
