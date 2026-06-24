@@ -46,7 +46,7 @@ export default function Header() {
           initial={{ y: 60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto mt-4 sm:-mt-[6vw] w-[58%] max-w-[420px] z-10"
+          className="relative mx-auto mt-4 sm:-mt-[5vw] w-[58%] max-w-[420px] z-10"
         >
           <img
             src={portrait}

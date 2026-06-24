@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 const links = [
-  { label: "Home", count: "40" },
-  { label: "About", count: null },
-  { label: "Skills", count: "4" },
-  { label: "Projects", count: "9y+" },
+  { label: "Home", count:null},
+  { label: "Experience", count: "~1y" },
+  { label: "Skills", count: "20+" },
+  { label: "Projects", count: "8+"},
   { label: "Contact", count: null },
 ];
 
