@@ -27,7 +27,7 @@ const items = [
     ],
   },
 ];
-
+//about
 export default function About() {
   const [hover, setHover] = useState(0);
 
