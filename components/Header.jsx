@@ -3,8 +3,16 @@ import { ArrowUpRight, Github, Linkedin } from "lucide-react";
 import portrait from "@/assets/profile-pic.png";
 
 const socials = [
-  { label: "Github", icon: Github },
-  { label: "LinkedIn", icon: Linkedin },
+  {
+    label: "Github",
+    icon: Github,
+    url: "https://github.com/AmirShabbir99",
+  },
+  {
+    label: "LinkedIn",
+    icon: Linkedin,
+    url: "https://www.linkedin.com/in/amir-shabbir99",
+  },
 ];
 
 export default function Header() {
@@ -60,7 +68,8 @@ export default function Header() {
           >
             <h2 className="font-display text-2xl font-bold text-neutral-900">MERN Stack Developer</h2>
             <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
-              Designing digital products that are clear, usable, and conversion focused.
+              Developing full-stack web applications that are modern, secure, and performance-driven.
+              Turning ideas into production-ready MERN solutions.
             </p>
             <motion.a
               href="#contact"
@@ -68,7 +77,7 @@ export default function Header() {
               whileTap={{ scale: 0.97 }}
               className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]"
             >
-              Let's collaborate <ArrowUpRight className="h-4 w-4" />
+              Let's Connect <ArrowUpRight className="h-4 w-4" />
             </motion.a>
           </motion.div>
 
@@ -81,7 +90,9 @@ export default function Header() {
             {socials.map((s) => (
               <motion.a
                 key={s.label}
-                href="#"
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 variants={{ hidden: { x: 20, opacity: 0 }, show: { x: 0, opacity: 1 } }}
                 whileHover={{ scale: 1.05, x: -4 }}
                 className="flex items-center gap-2 rounded-full bg-white px-3.5 py-2 text-xs font-medium text-neutral-800 shadow-[0_4px_18px_rgba(0,0,0,0.06)]"
