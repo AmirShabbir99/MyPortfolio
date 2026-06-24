@@ -14,7 +14,7 @@ const socials = [
     url: "https://www.linkedin.com/in/amir-shabbir99",
   },
 ];
-
+//header
 export default function Header() {
   return (
     <section className="relative px-4 sm:px-10 pt-8 sm:pt-14 pb-10 overflow-hidden">
